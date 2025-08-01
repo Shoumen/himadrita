@@ -34,20 +34,20 @@
     @stack('css')
 </head>
 
-<body>
-    
+<body id="theme-body" class="bg-light text-dark">
+
     <!-- ======= Header ======= -->
     @include('backend.layouts.includes.header')
     <!-- End Header -->
 
     <!-- ======= Sidebar ======= -->
     @include('backend.layouts.includes.sidebar')
-    
+
     <!-- End Sidebar-->
 
     <main id="main" class="main">
 
-       @yield('content')
+        @yield('content')
 
     </main><!-- End #main -->
 
@@ -72,6 +72,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/js/all.min.js"></script>
     <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.getElementById('theme-body');
+            const toggleBtn = document.getElementById('theme-toggle');
+
+            // Load saved theme from localStorage
+            if (localStorage.getItem('theme') === 'dark') {
+                body.classList.remove('bg-light', 'text-dark');
+                body.classList.add('bg-dark', 'text-white');
+            }
+
+            toggleBtn.addEventListener('click', function() {
+                if (body.classList.contains('bg-light')) {
+                    body.classList.remove('bg-light', 'text-dark');
+                    body.classList.add('bg-dark', 'text-white');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('bg-dark', 'text-white');
+                    body.classList.add('bg-light', 'text-dark');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+    </script>
     @stack('js')
 </body>
 

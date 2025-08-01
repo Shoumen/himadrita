@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth', 'verified')->group(function () {
 
-    Route::resource('dashboard',DashboardController::class);
+    Route::resource('dashboard', DashboardController::class);
 });
 
 // Route::get('/dashboard', function () {
