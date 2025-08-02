@@ -118,7 +118,7 @@
             </a>
             <ul id="customer" class="nav-content collapse {{ request()->routeIs('customer.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="" class="{{ request()->routeIs('customer.index') ? 'active' : '' }}">
+                    <a href="{{ route('customer.index') }}" class="{{ request()->routeIs('customer.index') ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Customer List</span>
                     </a>
                 </li>
@@ -131,7 +131,7 @@
             </a>
             <ul id="supplier" class="nav-content collapse {{ request()->routeIs('supplier.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="" class="{{ request()->routeIs('supplier.index') ? 'active' : '' }}">
+                    <a href="{{ route('supplier.index') }}" class="{{ request()->routeIs('supplier.index') ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Supplier List</span>
                     </a>
                 </li>
@@ -165,12 +165,53 @@
         </li>
 
         
-        {{-- Settings --}}
+        <li class="nav-heading">Recycle Bin</li>
+
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#">
-                <i class="bi bi-tools"></i><span>Setting</span>
+            <a class="nav-link {{ request()->routeIs('recycle.*') ? '' : 'collapsed' }}" data-bs-target="#recycleBin" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-trash"></i><span>Recycle Bin</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="recycleBin" class="nav-content collapse {{ request()->routeIs('recycle.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+
+                <li>
+                    <a href="{{ route('recycle.customer') }}" class="{{ request()->routeIs('recycle.customer') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Customer</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('recycle.supplier') }}" class="{{ request()->routeIs('recycle.supplier') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Supplier</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('recycle.product') }}" class="{{ request()->routeIs('recycle.product') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Product</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('recycle.purchase') }}" class="{{ request()->routeIs('recycle.purchase') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Purchase</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('recycle.transaction') }}" class="{{ request()->routeIs('recycle.transaction') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Transaction</span>
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+        {{-- History Log --}}
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{ route('activity.logs') }}">
+                <i class="bi bi-tools"></i><span>History Logs</span>
             </a>
         </li>
+
         {{-- Settings --}}
         <li class="nav-item">
             <a class="nav-link collapsed" href="#">
