@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BackendController\DashboardController;
 use App\Http\Controllers\BackendController\CustomerController;
+use App\Http\Controllers\BackendController\CategoryController;
+use App\Http\Controllers\BackendController\BrandController;
 use App\Http\Controllers\BackendController\SupplierController;
 use App\Http\Controllers\BackendController\RecycleBinController;
 use App\Http\Controllers\ActivityLogController;
@@ -22,10 +24,14 @@ Route::middleware('auth', 'verified')->group(function () {
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
- // --------------------> customers <--------------------
+ // --------------------> Customers <--------------------
     Route::resource('customer', CustomerController::class)->except(['show', 'edit', 'create']);
  // --------------------> suppliers <--------------------
     Route::resource('supplier', SupplierController::class)->except(['show', 'edit', 'create']);
+ // --------------------> Category <--------------------
+    Route::resource('category', CategoryController::class)->except(['show', 'edit', 'create']);
+// --------------------> Brand <--------------------
+    Route::resource('brand', BrandController::class)->except(['show', 'edit', 'create']);
 
 Route::prefix('recycle-bin')->name('recycle.')->group(function () {
     Route::get('/customer', [RecycleBinController::class, 'customer'])->name('customer');

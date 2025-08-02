@@ -42,6 +42,21 @@
                         <i class="bi bi-circle"></i><span>Product List</span>
                     </a>
                 </li>
+                 <li>
+                    <a href="{{ route('category.index') }}"class="{{ request()->routeIs('category.index') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Category List</span>
+                    </a>
+                </li>
+                  <li>
+                    <a href="{{ route('brand.index') }}" class="{{ request()->routeIs('brand.index') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Brand List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="{{ request()->routeIs('unit.index') ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Unit List</span>
+                    </a>
+                </li>
             </ul>
         </li>
         <li class="nav-item">
@@ -66,48 +81,7 @@
                 </li> --}}
             </ul>
         </li>
-
-        {{-- Category --}}
-        <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('category.*') ? '' : 'collapsed' }}" data-bs-target="#category" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Category</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="category" class="nav-content collapse {{ request()->routeIs('category.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href=" class="{{ request()->routeIs('category.index') ? 'active' : '' }}">
-                        <i class="bi bi-circle"></i><span>Category List</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        {{-- Brand --}}
-        <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('brand.*') ? '' : 'collapsed' }}" data-bs-target="#brand" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Brand</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="brand" class="nav-content collapse {{ request()->routeIs('brand.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="" class="{{ request()->routeIs('brand.index') ? 'active' : '' }}">
-                        <i class="bi bi-circle"></i><span>Brand List</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        {{-- Unit --}}
-        <li class="nav-item">
-            <a class="nav-link {{ request()->routeIs('unit.*') ? '' : 'collapsed' }}" data-bs-target="#unit" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gem"></i><span>Unit</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="unit" class="nav-content collapse {{ request()->routeIs('unit.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="" class="{{ request()->routeIs('unit.index') ? 'active' : '' }}">
-                        <i class="bi bi-circle"></i><span>Unit List</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
+    
 
         {{-- Customer & Supplier --}}
         <li class="nav-heading">Customer & Supplier</li>
